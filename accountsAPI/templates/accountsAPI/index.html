@@ -1,0 +1,228 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        #sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #343a40;
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        #content {
+            margin-left: 250px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <h2>Admin</h2>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user"></i> Users
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+            </button>
+        </nav>
+
+        <h2>Admin Dashboard</h2>
+        <p>Welcome to your admin dashboard.</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html> 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Your Page Title{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+
+</html>
+
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Garage Tracker{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+
+
+    <!-- Hero Section with Get Started CTA -->
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4 text-center">Garage Tracker</h1>
+            <p class="lead text-center">Effortlessly manage your garage activities and vehicle information.</p>
+            <hr class="my-4">
+            {% comment %} <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Login Form -->
+                                <div id="loginForm">
+                                    <h3 class="text-center mb-4">Login</h3>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="loginUsername">Username</label>
+                                            <input type="text" class="form-control" id="loginUsername" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="loginPassword">Password</label>
+                                            <input type="password" class="form-control" id="loginPassword" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                    </form>
+                                </div>
+        
+                                <!-- Registration Form -->
+                                <div id="registrationForm" style="display: none;">
+                                    <h3 class="text-center mb-4">Register</h3>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="registerUsername">Username</label>
+                                            <input type="text" class="form-control" id="registerUsername" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="registerEmail">Email</label>
+                                            <input type="email" class="form-control" id="registerEmail" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="registerPassword">Password</label>
+                                            <input type="password" class="form-control" id="registerPassword" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-success btn-block">Register</button>
+                                    </form>
+                                </div>
+        
+                                <!-- Toggle between Login and Registration Forms -->
+                                <p class="text-center mt-3">
+                                    <a href="javascript:void(0)" onclick="toggleForm('loginForm')">Already have an account? Login</a>
+                                    <br>
+                                    <a href="javascript:void(0)" onclick="toggleForm('registrationForm')">Don't have an account? Register</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+
+    <div class="container">
+        {% block content %}
+        
+        
+        {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function toggleForm(formId) {
+            $('#loginForm').toggle(formId === 'loginForm');
+            $('#registrationForm').toggle(formId === 'registrationForm');
+        }
+    </script>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+
+</html>
+
